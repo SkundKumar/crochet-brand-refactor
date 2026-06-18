@@ -8,23 +8,22 @@ import { useCart } from "./cart-context"
 import { products, Category } from "@/data/products"
 
 const categories = [
-  { value: "earrings" as Category, label: "Earrings" },
-  { value: "toys" as Category, label: "Toys" },
-  { value: "charms" as Category, label: "Charms" }
+  { value: "featured", label: "Featured" },
+  
 ]
 
 export function ProductGrid() {
-  const [selectedCategory, setSelectedCategory] = useState<Category>("earrings")
+  const [selectedCategory, setSelectedCategory] = useState<string>("featured")
   const [isVisible, setIsVisible] = useState(true)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [headerVisible, setHeaderVisible] = useState(false)
   const gridRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
   const { addItem } = useCart()
-  
-  const filteredProducts = products.filter(product => product.category === selectedCategory)
+   
+  const featuredProducts = products.filter(product => product.featured === true)
 
-  const handleCategoryChange = (category: Category) => {
+  const handleCategoryChange = (category: string) => {
     if (category !== selectedCategory) {
       setIsTransitioning(true)
       setTimeout(() => {
@@ -35,14 +34,17 @@ export function ProductGrid() {
       }, 300)
     }
   }
+  
 
   // Preload all product images on mount
   useEffect(() => {
-    products.forEach((product) => {
-      const img = new window.Image()
-      img.src = product.image
+    featuredProducts.forEach((product) => {
+      if (product.images && product.images[0]) {
+        const img = new window.Image()
+        img.src = product.images[0] 
+      }
     })
-  }, [])
+  }, [featuredProducts])
 
   useEffect(() => {
     const gridObserver = new IntersectionObserver(
@@ -90,7 +92,7 @@ export function ProductGrid() {
             Crux Collection
           </span>
           <h2 className={`font-serif leading-tight text-foreground mb-4 text-balance text-7xl ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.4s', animationFillMode: 'forwards' } : {}}>
-            Artisan handmade
+            Featured Products
           </h2>
           <p className={`text-lg text-muted-foreground max-w-md mx-auto ${headerVisible ? 'animate-blur-in opacity-0' : 'opacity-0'}`} style={headerVisible ? { animationDelay: '0.6s', animationFillMode: 'forwards' } : {}}>
             Sustainable crochet pieces crafted with love and quality materials
@@ -98,46 +100,23 @@ export function ProductGrid() {
         </div>
 
         {/* Segmented Control */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-background rounded-full p-1 gap-1 relative">
-            {/* Animated background slide */}
-            <div
-              className="absolute top-1 bottom-1 bg-foreground rounded-full transition-all duration-300 ease-out shadow-sm"
-              style={{
-                left: selectedCategory === 'earrings' ? '4px' : selectedCategory === 'toys' ? 'calc(33.333% + 2px)' : 'calc(66.666%)',
-                width: 'calc(33.333% - 4px)'
-              }}
-            />
-            {categories.map((category) => (
-              <button
-                key={category.value}
-                type="button"
-                onClick={() => handleCategoryChange(category.value)}
-                className={`relative z-10 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                  selectedCategory === category.value
-                    ? "text-background"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {category.label}
-              </button>
-            ))}
-          </div>
-        </div>
+        
+        
+      
 
         {/* Product Grid */}
         <div 
           ref={gridRef}
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
-          {filteredProducts.map((product, index) => (
+          {featuredProducts.map((product, index) => (
             <Link
-              key={`${selectedCategory}-${product.id}`}
+              key={`featured-${product.id}`}
               href={`/product/${product.id}`}
               className={`group transition-all duration-500 ease-out ${
-                isVisible && !isTransitioning ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
-              style={{ transitionDelay: isTransitioning ? '0ms' : `${index * 80}ms` }}
+              style={{ transitionDelay: `${index * 80}ms` }}
             >
               <div className="bg-background rounded-3xl overflow-hidden boty-shadow boty-transition group-hover:scale-[1.02]">
                 {/* Image */}

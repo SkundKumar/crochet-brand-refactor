@@ -15,10 +15,8 @@ export default function HomePage() {
       <Hero />
       <TrustBadges />
       <ProductGrid />
-      <FeatureSection />
-      <Testimonials />
-      <CTABanner />
-      <Newsletter />
+     
+      
       <Footer />
     </main>
   )

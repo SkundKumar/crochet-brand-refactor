@@ -1,4 +1,4 @@
-export type Category = 'earrings' | 'toys' | 'charms';
+export type Category = 'earrings' | 'toys' | 'charms' | 'flowers';
 
 export interface Product {
   id: string;
@@ -9,6 +9,7 @@ export interface Product {
   images: string[];
   badge: string | null;
   category: Category;
+  featured?: boolean;
   tagline?: string;
   sizes?: string[];
   details?: string;
@@ -19,22 +20,23 @@ export interface Product {
 
 export const products: Product[] = [
   // Earrings
-   {
-     id: 'red-circle-earrings',
-     name: 'Red Circle Earrings',
-     description: 'Handcrafted red crochet with pearls',
-     price: 149,
-     originalPrice: 199,
-     images: ['/images/products/earing-red.png'],
-     badge: 'Bestseller',
-      category: 'earrings',
-      tagline: 'Elegant handcrafted statement earrings',
-      sizes: ['One Size'],
-      details: 'Handcrafted with premium yarn and finished with pearl beads, these earrings are a true artisan creation. Each pair is unique, showcasing the beauty of traditional crochet techniques combined with modern design sensibilities.',
-      materials: '100% Premium Yarn, Pearl Beads, Silver Hooks, Handcrafted',
-      careInstructions: 'Store in a dry place away from direct sunlight. Gently dust with a soft cloth. Avoid moisture and perfume contact.',
-      delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
-    },
+     {
+       id: 'red-circle-earrings',
+       name: 'Red Circle Earrings',
+       description: 'Handcrafted red crochet with pearls',
+       price: 149,
+       originalPrice: 199,
+       images: ['/images/products/earing-red.png'],
+       badge: 'Bestseller',
+       category: 'earrings',
+       featured: true,
+       tagline: 'Elegant handcrafted statement earrings',
+       sizes: ['One Size'],
+       details: 'Handcrafted with premium yarn and finished with pearl beads, these earrings are a true artisan creation. Each pair is unique, showcasing the beauty of traditional crochet techniques combined with modern design sensibilities.',
+       materials: '100% Premium Yarn, Pearl Beads, Silver Hooks, Handcrafted',
+       careInstructions: 'Store in a dry place away from direct sunlight. Gently dust with a soft cloth. Avoid moisture and perfume contact.',
+       delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
+     },
     {
       id: 'pink-flower-earrings',
       name: 'Pink Flower Earrings',
@@ -51,22 +53,23 @@ export const products: Product[] = [
       careInstructions: 'Store in a dry place away from direct sunlight. Gently dust with a soft cloth. Avoid moisture and perfume contact.',
       delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
     },
-    {
-      id: 'heart-earrings',
-      name: 'Heart Earrings',
-      description: 'Pink hearts with pearl details',
-      price: 449,
-      originalPrice: 549,
-      images: ['/images/products/earing-heart.png'],
-      badge: null,
-      category: 'earrings',
-      tagline: 'Love-filled crochet art',
-      sizes: ['One Size'],
-      details: 'Sweet pink crochet hearts adorned with pearl beads create a charming pair of earrings. Each handcrafted heart is unique, making these a special artisan gift.',
-      materials: '100% Premium Yarn, Pearl Beads, Silver Hooks',
-      careInstructions: 'Store in a dry place. Gently dust with soft cloth. Avoid moisture and direct sunlight.',
-      delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
-    },
+     {
+       id: 'heart-earrings',
+       name: 'Heart Earrings',
+       description: 'Pink hearts with pearl details',
+       price: 449,
+       originalPrice: 549,
+       images: ['/images/products/earing-heart.png'],
+       badge: null,
+       category: 'earrings',
+       featured: true,
+       tagline: 'Love-filled crochet art',
+       sizes: ['One Size'],
+       details: 'Sweet pink crochet hearts adorned with pearl beads create a charming pair of earrings. Each handcrafted heart is unique, making these a special artisan gift.',
+       materials: '100% Premium Yarn, Pearl Beads, Silver Hooks',
+       careInstructions: 'Store in a dry place. Gently dust with soft cloth. Avoid moisture and direct sunlight.',
+       delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
+     },
   // Toys
     {
       id: 'orange-cat-toy',
@@ -174,7 +177,7 @@ export const products: Product[] = [
      originalPrice: null,
      images: ['/images/products/rose%20boque.png'],
      badge: 'Bestseller',
-     category: 'charms',
+     category: 'flowers',
      tagline: 'Eternal artisan roses',
      sizes: ['One Size'],
      details: 'Handcrafted bouquet of soft pink roses artfully arranged and wrapped. This eternal bouquet never wilts and makes a memorable gift for special occasions.',
@@ -212,7 +215,7 @@ export const products: Product[] = [
     details: 'Handcrafted with soft baby pink yarn, this rose features intricate petals and a realistic look. Ideal for brooches, hair clips, or garment embellishment.',
     materials: '100% Premium Yarn, Handcrafted',
     careInstructions: 'Store in a dry place. Dust gently with a soft brush. Avoid moisture and direct sunlight.',
-    delivery: 'Free standard shipping on orders over �,1500. Express shipping available. All orders ship within 2-3 business days. No returns.'
+      delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
   },
   {
     id: 'chenille-yarn-shoulder-bag',
@@ -228,7 +231,7 @@ export const products: Product[] = [
     details: 'Crafted from plush chenille yarn, this bag offers ample space for daily essentials. Features a top zip closure and sturdy handles.',
     materials: '100% Chenille Yarn, Zipper, Fabric Lining',
     careInstructions: 'Spot clean only. Do not machine wash. Keep away from sharp objects.',
-    delivery: 'Free standard shipping on orders over �,1500. Express shipping available. All orders ship within 2-3 business days. No returns.'
+      delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
   },
   {
     id: 'crochet-cat-keychain',
@@ -244,7 +247,7 @@ export const products: Product[] = [
     details: 'Handcrafted with soft yarn, this keychain features a cute cat face with embroidered details. Includes a metal keyring attachment.',
     materials: '100% Premium Yarn, Metal Keyring',
     careInstructions: 'Keep dry. Dust gently. Avoid prolonged exposure to sunlight.',
-    delivery: 'Free standard shipping on orders over �,1500. Express shipping available. All orders ship within 2-3 business days. No returns.'
+      delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
   },
   {
     id: 'crochet-rose-bouquet',
@@ -260,7 +263,7 @@ export const products: Product[] = [
     details: 'This bouquet consists of multiple crochet roses in various shades, artfully arranged and wrapped with ribbon. Each rose is handcrafted with attention to detail.',
     materials: '100% Premium Yarn, Ribbon, Wrapping Paper',
     careInstructions: 'Display in a dry location. Dust gently. Keep away from moisture and direct sunlight.',
-    delivery: 'Free standard shipping on orders over �,1500. Express shipping available. All orders ship within 2-3 business days. No returns.'
+      delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
   },
   {
     id: 'crochet-rose-hair-accessory',
@@ -276,7 +279,7 @@ export const products: Product[] = [
     details: 'Handcrafted with vibrant yarn, this rose accessory can be worn as a hair clip or pinned to clothing. Features a secure clip or pin back.',
     materials: '100% Premium Yarn, Hair Clip or Pin Back',
     careInstructions: 'Keep dry. Store in a jewelry box. Avoid moisture and perfume.',
-    delivery: 'Free standard shipping on orders over �,1500. Express shipping available. All orders ship within 2-3 business days. No returns.'
+      delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
   },
   {
     id: 'crochet-rose',
@@ -292,7 +295,7 @@ export const products: Product[] = [
     details: 'Handcrafted with premium yarn, this rose features layered petals and a realistic appearance. Includes a flat back for easy attachment.',
     materials: '100% Premium Yarn, Handcrafted',
     careInstructions: 'Store in a dry place. Dust gently. Avoid moisture and direct sunlight.',
-    delivery: 'Free standard shipping on orders over �,1500. Express shipping available. All orders ship within 2-3 business days. No returns.'
+      delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
   },
   {
     id: 'crochet-sunflower',
@@ -308,7 +311,7 @@ export const products: Product[] = [
     details: 'This set includes a crochet sunflower with a textured center and a stretchy rubberband. Great for attaching to bags, hats, or as a hair tie.',
     materials: '100% Premium Yarn, Rubberband',
     careInstructions: 'Keep dry. Dust gently. Avoid excessive heat.',
-    delivery: 'Free standard shipping on orders over �,1500. Express shipping available. All orders ship within 2-3 business days. No returns.'
+      delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
   },
   {
     id: 'crochet-tulip-bag-charm',
@@ -324,7 +327,7 @@ export const products: Product[] = [
     details: 'Handcrafted with bright yarn, this tulip charm features a sturdy loop for easy attachment to bags or zippers.',
     materials: '100% Premium Yarn, Metal Loop',
     careInstructions: 'Keep dry. Avoid moisture and direct sunlight.',
-    delivery: 'Free standard shipping on orders over �,1500. Express shipping available. All orders ship within 2-3 business days. No returns.'
+      delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
   },
   {
     id: 'crochet-white-rose-in-pot',
@@ -340,7 +343,7 @@ export const products: Product[] = [
     details: 'This set includes a handcrafted white crochet rose with green foliage, placed in a small decorative pot. Ideal for home or office decor.',
     materials: '100% Premium Yarn, Artificial Pot, Moss',
     careInstructions: 'Display in a dry location. Dust gently. Keep away from moisture and direct sunlight.',
-    delivery: 'Free standard shipping on orders over �,1500. Express shipping available. All orders ship within 2-3 business days. No returns.'
+      delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
   },
   {
     id: 'pink-crochet-earrings-tassles',
@@ -356,7 +359,7 @@ export const products: Product[] = [
     details: 'Handcrafted with soft pink yarn, these earrings feature a crochet base with dangling tassels. Lightweight and comfortable for all-day wear.',
     materials: '100% Premium Yarn, Earwire Findings',
     careInstructions: 'Keep dry. Store in a jewelry box. Avoid moisture and perfume.',
-    delivery: 'Free standard shipping on orders over �,1500. Express shipping available. All orders ship within 2-3 business days. No returns.'
+      delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
   },
   {
     id: 'pink-strawberry-daisy-earrings',
@@ -372,7 +375,7 @@ export const products: Product[] = [
     details: 'Handcrafted with vibrant yarn, these earrings feature a strawberry charm with a tiny daisy flower. Secure with comfortable earwires.',
     materials: '100% Premium Yarn, Earwire Findings',
     careInstructions: 'Keep dry. Store in a jewelry box. Avoid moisture and perfume.',
-    delivery: 'Free standard shipping on orders over �,1500. Express shipping available. All orders ship within 2-3 business days. No returns.'
+      delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
   },
   {
     id: 'strawberry-bag-charm-keychain',
@@ -388,7 +391,7 @@ export const products: Product[] = [
     details: 'Handcrafted with red and green yarn, this strawberry features a loop for attaching to bags or a keyring. Great for adding a playful touch.',
     materials: '100% Premium Yarn, Metal Loop or Keyring',
     careInstructions: 'Keep dry. Avoid moisture and direct sunlight.',
-    delivery: 'Free standard shipping on orders over �,1500. Express shipping available. All orders ship within 2-3 business days. No returns.'
+      delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
   },
   {
     id: 'strawberry-keychain-daisy',
@@ -404,7 +407,7 @@ export const products: Product[] = [
     details: 'Handcrafted with vibrant yarn, this keychain showcases a strawberry charm with a daisy flower. Includes a sturdy metal keyring.',
     materials: '100% Premium Yarn, Metal Keyring',
     careInstructions: 'Keep dry. Dust gently. Avoid moisture and direct sunlight.',
-    delivery: 'Free standard shipping on orders over �,1500. Express shipping available. All orders ship within 2-3 business days. No returns.'
+      delivery: 'Free standard shipping on orders over ₹500. Express shipping available. All orders ship within 2-3 business days. No returns.'
   }
 ];
 
