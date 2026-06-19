@@ -6,9 +6,11 @@ import { Instagram, Facebook, Twitter } from "lucide-react"
 const footerLinks = {
   shop: [
     { name: "All Products", href: "/shop" },
-    { name: "Bags", href: "/shop?category=bags" },
-    { name: "Wearables", href: "/shop?category=wearables" },
-    { name: "Home", href: "/shop?category=home" },
+    { name: "Accessories", href: "/shop?category=accessories" },
+    { name: "Charms", href: "/shop?category=charms" },
+    { name: "Flowers", href: "/shop?category=flowers" },
+    { name: "Keychain", href: "/shop?category=keychain" },
+    { name: "Plushie", href: "/shop?category=plushie" },
     { name: "Gift Sets", href: "/shop" }
   ],
   about: [

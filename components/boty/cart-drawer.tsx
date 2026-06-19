@@ -16,7 +16,7 @@ import { useCart } from "./cart-context"
 export function CartDrawer() {
   const { items, removeItem, updateQuantity, isOpen, setIsOpen, itemCount, subtotal } = useCart()
 
-  const shipping = 0
+  const shipping = subtotal >= 500 ? 0 : 60
   const total = subtotal + shipping
 
   const handleWhatsAppCheckout = () => {

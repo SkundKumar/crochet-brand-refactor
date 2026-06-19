@@ -24,7 +24,7 @@ export default function ProductPage() {
   const productId = params.id as string
   const product = getProductById(productId) ?? products[0]
 
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0])
+   const [selectedSize, setSelectedSize] = useState(product.sizes?.[0] ?? 'One Size')
   const [quantity, setQuantity] = useState(1)
   const [openAccordion, setOpenAccordion] = useState<AccordionSection | null>("details")
   const [isAdded, setIsAdded] = useState(false)
@@ -72,12 +72,12 @@ export default function ProductPage() {
     setIsOpen(true)
   }
 
-  const accordionItems: { key: AccordionSection; title: string; content: string }[] = [
-    { key: "details", title: "Details", content: product.details },
-    { key: "materials", title: "Materials", content: product.materials },
-    { key: "careInstructions", title: "Care Instructions", content: product.careInstructions },
-    { key: "delivery", title: "Delivery & Returns", content: product.delivery },
-  ]
+   const accordionItems: { key: AccordionSection; title: string; content: string }[] = [
+     { key: "details", title: "Details", content: product.details ?? '' },
+     { key: "materials", title: "Materials", content: product.materials ?? '' },
+     { key: "careInstructions", title: "Care Instructions", content: product.careInstructions ?? '' },
+     { key: "delivery", title: "Delivery & Returns", content: product.delivery ?? '' },
+   ]
 
   return (
     <main className="min-h-screen">
@@ -248,22 +248,22 @@ export default function ProductPage() {
               {/* Size Selector */}
               <div className="mb-6">
                 <label className="text-sm font-medium text-foreground mb-3 block">Size</label>
-                <div className="flex gap-3">
-                  {product.sizes.map((size) => (
-                    <button
-                      key={size}
-                      type="button"
-                      onClick={() => setSelectedSize(size)}
-                      className={`px-6 py-3 rounded-full text-sm boty-transition boty-shadow ${
-                        selectedSize === size
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-card text-foreground hover:bg-card/80"
-                      }`}
-                    >
-                      {size}
-                    </button>
-                  ))}
-                </div>
+                 <div className="flex gap-3">
+                   {(product.sizes ?? []).map((size) => (
+                     <button
+                       key={size}
+                       type="button"
+                       onClick={() => setSelectedSize(size)}
+                       className={`px-6 py-3 rounded-full text-sm boty-transition boty-shadow ${
+                         selectedSize === size
+                           ? "bg-primary text-primary-foreground"
+                           : "bg-card text-foreground hover:bg-card/80"
+                       }`}
+                     >
+                       {size}
+                     </button>
+                   ))}
+                 </div>
               </div>
 
               {/* Quantity Selector */}

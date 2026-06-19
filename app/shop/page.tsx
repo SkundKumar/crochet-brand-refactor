@@ -9,7 +9,7 @@ import { Footer } from "@/components/boty/footer"
 import { useCart } from "@/components/boty/cart-context"
 import { products } from "@/data/products"
 
-const categories = ["all", "earrings", "toys", "charms","flowers"]
+const categories = ["all", "accessories", "charms", "flowers", "keychain", "plushie"]
 
 export default function ShopPage() {
   const [selectedCategory, setSelectedCategory] = useState("all")
