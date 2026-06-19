@@ -72,7 +72,7 @@ export function Hero() {
                          animate-blur-in opacity-0"
               style={{ animationDelay: "0.6s", animationFillMode: "forwards" }}
             >
-              Beautifully You.
+              Beautifully For You.
             </span>
           </h2>
 
