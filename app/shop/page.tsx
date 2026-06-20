@@ -170,8 +170,7 @@ function ProductCard({
   index: number
   isVisible: boolean
 }) {
-    const [imageLoaded, setImageLoaded] = useState(false)
-    const { addItem, setIsOpen } = useCart()
+  const { addItem, setIsOpen } = useCart()
 
      const handleAddToCart = (e: React.MouseEvent) => {
        e.preventDefault()
@@ -187,33 +186,23 @@ function ProductCard({
        setIsOpen(true);
      }
 
-  return (
-    <Link
-      href={`/product/${product.id}`}
-      className={`group transition-all duration-700 ease-out ${
-        isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-      }`}
-      style={{ transitionDelay: `${index * 80}ms` }}
-    >
+   return (
+     <Link
+       href={`/product/${encodeURIComponent(product.id)}`}
+       className={`group transition-all duration-700 ease-out ${
+         isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+       }`}
+       style={{ transitionDelay: `${index * 80}ms` }}
+     >
       <div className="bg-card rounded-3xl overflow-hidden boty-shadow boty-transition group-hover:scale-[1.02]">
         {/* Image */}
         <div className="relative aspect-square bg-muted overflow-hidden">
-          {/* Skeleton */}
-          <div 
-            className={`absolute inset-0 bg-gradient-to-br from-muted via-muted/50 to-muted animate-pulse transition-opacity duration-500 ${
-              imageLoaded ? 'opacity-0' : 'opacity-100'
-            }`}
+          <Image
+            src={product.images[0] || "/placeholder.svg"}
+            alt={product.name}
+            fill
+            className="object-cover boty-transition group-hover:scale-105"
           />
-          
-           <Image
-             src={product.images[0] || "/placeholder.svg"}
-             alt={product.name}
-             fill
-             className={`object-cover boty-transition group-hover:scale-105 transition-opacity duration-500 ${
-               imageLoaded ? 'opacity-100' : 'opacity-0'
-             }`}
-             onLoad={() => setImageLoaded(true)}
-           />
           {/* Badge */}
           {product.badge && (
             <span

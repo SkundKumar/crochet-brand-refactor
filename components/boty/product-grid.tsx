@@ -110,14 +110,14 @@ export function ProductGrid() {
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {featuredProducts.map((product, index) => (
-            <Link
-              key={`featured-${product.id}`}
-              href={`/product/${product.id}`}
-              className={`group transition-all duration-500 ease-out ${
-                isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-              }`}
-              style={{ transitionDelay: `${index * 80}ms` }}
-            >
+<Link
+  key={`featured-${product.id}`}
+  href={`/product/${encodeURIComponent(product.id)}`}
+  className={`group transition-all duration-500 ease-out ${
+    isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+  }`}
+  style={{ transitionDelay: `${index * 80}ms` }}
+>
               <div className="bg-background rounded-3xl overflow-hidden boty-shadow boty-transition group-hover:scale-[1.02]">
                 {/* Image */}
                  <div className="relative aspect-square bg-muted overflow-hidden">

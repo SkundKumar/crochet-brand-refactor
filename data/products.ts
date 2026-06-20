@@ -71,7 +71,7 @@ export const products: Product[] = [
      },
   // Toys
     {
-      id: 'orange-cat keychain',
+      id: 'orange-cat-keychain',
       name: 'Orange cat keychain',
       description: 'Adorable crochet cat with pink bow',
       price: 129,
@@ -87,7 +87,7 @@ export const products: Product[] = [
        delivery: 'Handcrafted with care. Delivery takes 1-2 weeks. Free shipping on orders over ₹500.'
     },
    {
-     id: 'turtle bag charm',
+     id: 'turtle-bag-charm',
      name: 'Turtle bag charm',
      description: 'Cute green and white crochet turtle',
      price: 299,
@@ -105,7 +105,7 @@ export const products: Product[] = [
    
   // Charms
    {
-     id: 'cherry-bag charm',
+     id: 'cherry-bag-charm',
      name: 'Cherry Pair bag Charm',
      description: 'Red cherries with green leaves',
      price: 149,
@@ -121,7 +121,7 @@ export const products: Product[] = [
        delivery: 'Handcrafted with care. Delivery takes 1-2 weeks. Free shipping on orders over ₹500.'
    },
   {
-    id: 'sunflower-bag charm',
+    id: 'sunflower-bag-charm',
     name: 'Sunflower bag Charm',
     description: 'Yellow sunflower with brown center',
      price: 149,
@@ -137,7 +137,7 @@ export const products: Product[] = [
        delivery: 'Handcrafted with care. Delivery takes 1-2 weeks. Free shipping on orders over ₹500.'
    },
    {
-     id: 'cherry-ribbon keychin',
+     id: 'cherry-ribbon-keychin',
      name: 'Cherry Ribbon keychain',
      description: 'Red cherries with yellow ribbon',
      price: 199,
