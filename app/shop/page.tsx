@@ -42,7 +42,6 @@ export default function ShopPage() {
     }
   }, [])
 
-  // Reset animation when category changes
   useEffect(() => {
     setIsVisible(false)
     const timer = setTimeout(() => setIsVisible(true), 100)
@@ -52,7 +51,7 @@ export default function ShopPage() {
   return (
     <main className="min-h-screen">
       <Header />
-      
+
       <div className="pt-28 pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Header */}
@@ -140,12 +139,12 @@ export default function ShopPage() {
           )}
 
           {/* Product Grid */}
-          <div 
+          <div
             ref={gridRef}
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {filteredProducts.map((product, index) => (
-              <ProductCard 
+              <ProductCard
                 key={product.id}
                 product={product}
                 index={index}
@@ -161,47 +160,59 @@ export default function ShopPage() {
   )
 }
 
-function ProductCard({ 
-  product, 
-  index, 
-  isVisible 
-}: { 
+function ProductCard({
+  product,
+  index,
+  isVisible,
+}: {
   product: typeof products[0]
   index: number
   isVisible: boolean
 }) {
   const { addItem, setIsOpen } = useCart()
+  const [imgLoaded, setImgLoaded] = useState(false)
 
-     const handleAddToCart = (e: React.MouseEvent) => {
-       e.preventDefault()
-       e.stopPropagation()
-       addItem({
-         id: product.id,
-         name: product.name,
-         description: product.description,
-         price: product.price,
-         quantity: 1,
-         image: product.images[0]
-       });
-       setIsOpen(true);
-     }
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    addItem({
+      id: product.id,
+      name: product.name,
+      description: product.description,
+      price: product.price,
+      quantity: 1,
+      image: product.images[0],
+    })
+    setIsOpen(true)
+  }
 
-   return (
-     <Link
-       href={`/product/${encodeURIComponent(product.id)}`}
-       className={`group transition-all duration-700 ease-out ${
-         isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-       }`}
-       style={{ transitionDelay: `${index * 80}ms` }}
-     >
+  return (
+    <Link
+      href={`/product/${encodeURIComponent(product.id)}`}
+      className={`group transition-all duration-700 ease-out ${
+        isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+      }`}
+      style={{ transitionDelay: `${index * 80}ms` }}
+    >
       <div className="bg-card rounded-3xl overflow-hidden boty-shadow boty-transition group-hover:scale-[1.02]">
         {/* Image */}
         <div className="relative aspect-square bg-muted overflow-hidden">
+          {/* Skeleton */}
+          <div
+            className={`absolute inset-0 bg-muted animate-pulse transition-opacity duration-300 ${
+              imgLoaded ? "opacity-0" : "opacity-100"
+            }`}
+          />
           <Image
             src={product.images[0] || "/placeholder.svg"}
             alt={product.name}
             fill
-            className="object-cover boty-transition group-hover:scale-105"
+            priority={index < 3}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className={`object-cover boty-transition group-hover:scale-105 transition-opacity duration-300 ${
+              imgLoaded ? "opacity-100" : "opacity-0"
+            }`}
+            onLoad={() => setImgLoaded(true)}
           />
           {/* Badge */}
           {product.badge && (

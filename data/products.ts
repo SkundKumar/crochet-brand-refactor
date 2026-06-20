@@ -31,7 +31,7 @@ export const products: Product[] = [
        category: 'accessories',
        featured: true,
        tagline: 'Elegant handcrafted statement earrings',
-       sizes: ['One Size','red and green'],
+       sizes: ['One Size'],
        details: 'Handcrafted with premium yarn and finished with pearl beads, these earrings are a true artisan creation. Each pair is unique, showcasing the beauty of traditional crochet techniques combined with modern design sensibilities.',
        materials: '100% Premium Yarn, Pearl Beads, Silver Hooks, Handcrafted',
        careInstructions: 'Store in a dry place away from direct sunlight. Gently dust with a soft cloth. Avoid moisture and perfume contact.',
