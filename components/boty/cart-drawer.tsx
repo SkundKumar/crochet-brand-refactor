@@ -28,7 +28,7 @@ export function CartDrawer() {
     const message = `Hi Crux!%0A%0AI would like to order:%0A${itemsList}%0A%0ASubtotal: ₹${subtotal}%0AShipping: ${shipping === 0 ? "Free" : `₹${shipping}`}%0ATotal: ₹${total}%0A%0APlease confirm the order details. Thank you!`
     
     // WhatsApp Web link (opens in browser or app)
-    const whatsappNumber = "+918744026821"
+    const whatsappNumber = "+917982460486"
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`
     
     // Open in new tab if in iframe, otherwise in current tab

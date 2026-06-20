@@ -60,17 +60,31 @@ export default function ProductPage() {
     setOpenAccordion(openAccordion === section ? null : section)
   }
 
-  const handleAddItem = () => {
-    addItem({
-      id: product.id,
-      name: product.name,
-      description: product.description,
-      price: product.price,
-      quantity: quantity,
-      image: product.images[0],
-    })
-    setIsOpen(true)
-  }
+   const handleAddItem = () => {
+     addItem({
+       id: product.id,
+       name: product.name,
+       description: product.description,
+       price: product.price,
+       quantity: quantity,
+       image: product.images[0],
+     })
+     setIsOpen(true)
+   }
+
+   const handleAskQuery = () => {
+     const message = `Hi Crux!%0A%0AI have a question about the ${product.name} product. Could you please provide more details?`;
+     const whatsappNumber = "+917982460486";
+     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
+     
+     if (typeof window !== 'undefined') {
+       if (window.self !== window.top) {
+         window.open(whatsappLink, '_blank')
+       } else {
+         window.location.href = whatsappLink
+       }
+     }
+   }
 
    const accordionItems: { key: AccordionSection; title: string; content: string }[] = [
      { key: "details", title: "Details", content: product.details ?? '' },
@@ -290,38 +304,48 @@ export default function ProductPage() {
                 </div>
               </div>
 
-              {/* Add to Cart Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                <button
-                  type="button"
-                  onClick={() => {
-                    handleAddItem()
-                    setIsAdded(true)
-                    setTimeout(() => setIsAdded(false), 2000)
-                  }}
-                  className={`flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm tracking-wide boty-transition boty-shadow ${
-                    isAdded
-                      ? "bg-primary/80 text-primary-foreground"
-                      : "bg-primary text-primary-foreground hover:bg-primary/90"
-                  }`}
-                >
-                  {isAdded ? (
-                    <>
-                      <Check className="w-4 h-4" />
-                      Added to Cart
-                    </>
-                  ) : (
-                    "Add to Cart"
-                  )}
-                </button>
-                <button
-                  type="button"
-                  onClick={handleAddItem}
-                  className="flex-1 inline-flex items-center justify-center gap-2 bg-transparent border border-foreground/20 text-foreground px-8 py-4 rounded-full text-sm tracking-wide boty-transition hover:bg-foreground/5"
-                >
-                  Buy Now
-                </button>
-              </div>
+               {/* Action Buttons */}
+               <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                 {/* Buy Now */}
+                 <button
+                   type="button"
+                   onClick={handleAddItem}
+                   className="flex-1 inline-flex items-center justify-center gap-2 bg-transparent border border-foreground/20 text-foreground px-8 py-4 rounded-full text-sm tracking-wide boty-transition hover:bg-foreground/5"
+                 >
+                   Buy Now
+                 </button>
+                 {/* Add to Cart */}
+                 <button
+                   type="button"
+                   onClick={() => {
+                     handleAddItem()
+                     setIsAdded(true)
+                     setTimeout(() => setIsAdded(false), 2000)
+                   }}
+                   className={`flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm tracking-wide boty-transition boty-shadow ${
+                     isAdded
+                       ? "bg-primary/80 text-primary-foreground"
+                       : "bg-primary text-primary-foreground hover:bg-primary/90"
+                   }`}
+                 >
+                   {isAdded ? (
+                     <>
+                       <Check className="w-4 h-4" />
+                       Added to Cart
+                     </>
+                   ) : (
+                     "Add to Cart"
+                   )}
+                 </button>
+                 {/* Ask Queries */}
+                 <button
+                   type="button"
+                   onClick={handleAskQuery}
+                   className="flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm tracking-wide boty-transition boty-shadow bg-primary text-primary-foreground hover:bg-primary/90"
+                 >
+                   Ask Queries
+                 </button>
+               </div>
 
               {/* Benefits */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
