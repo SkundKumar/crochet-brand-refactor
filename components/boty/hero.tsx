@@ -63,7 +63,7 @@ export function Hero() {
                          animate-blur-in opacity-0"
               style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
             >
-              Handcrafted.
+              Woven
             </span>
             <span
               className="block font-semibold
@@ -72,7 +72,7 @@ export function Hero() {
                          animate-blur-in opacity-0"
               style={{ animationDelay: "0.6s", animationFillMode: "forwards" }}
             >
-              Beautifully For You.
+              With Intent
             </span>
           </h2>
 

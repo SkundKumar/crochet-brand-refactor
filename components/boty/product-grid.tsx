@@ -185,9 +185,11 @@ export function ProductGrid() {
         <div className="text-center mt-12">
           <Link
             href="/shop"
-            className="inline-flex items-center justify-center gap-2 bg-transparent border border-foreground/20 text-foreground px-8 py-4 rounded-full text-sm tracking-wide boty-transition hover:bg-foreground/5"
+            className="relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-medium boty-transition bg-primary text-primary-foreground hover:bg-primary/90 border-none boty-shadow hover:shadow-primary/20 hover:-translate-y-1 hover:scale-105"
           >
             View All Products
+            <span className="absolute -right-4 -bottom-2 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs hidden group-hover:block">
+            </span>
           </Link>
         </div>
       </div>
