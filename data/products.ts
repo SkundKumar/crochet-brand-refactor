@@ -749,6 +749,22 @@ export const products: Product[] = [
       careInstructions: 'Keep dry. Dust gently. Avoid moisture and direct sunlight.',
       delivery: 'Handcrafted with care. Delivery takes 1-2 weeks. Free shipping on orders over ₹500.'
     },
+    {
+      id: 'sunflower-hair-accesory',
+      name: 'Sunflower Hair Clip',
+      description: 'Handcrafted Sunflower Hair Clip made with premium yarn.',
+      price: 249,
+      originalPrice: 449,
+      images: ['/images/products/sunflower-hair-clip.jpeg','/images/products/sunflower-hair-clip2.jpeg'],
+      badge: 'New',
+      category: 'accessories',
+      tagline: 'Sunflower Hair Clip',
+      sizes: ['One Size'],
+      details: 'Handcrafted Sunflower Hair Clip made with soft premium yarn, perfect as a hair clip',
+      materials: '100% Premium Yarn',
+      careInstructions: 'Keep dry. Dust gently. Avoid moisture and direct sunlight.',
+      delivery: 'Handcrafted with care. Delivery takes 1-2 weeks. Free shipping on orders over ₹500.'
+    },
     
    ];
 
