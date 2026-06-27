@@ -753,7 +753,7 @@ export const products: Product[] = [
       id: 'sunflower-hair-accesory',
       name: 'Sunflower Hair Clip',
       description: 'Handcrafted Sunflower Hair Clip made with premium yarn.',
-      price: 249,
+      price: 299,
       originalPrice: 449,
       images: ['/images/products/sunflower-hair-clip.jpeg','/images/products/sunflower-hair-clip2.jpeg'],
       badge: 'New',
