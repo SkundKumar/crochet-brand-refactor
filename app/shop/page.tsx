@@ -9,7 +9,7 @@ import { Footer } from "@/components/boty/footer"
 import { useCart } from "@/components/boty/cart-context"
 import { products } from "@/data/products"
 
-const categories = ["all", "accessories", "charms", "flowers", "keychain", "plushie"]
+const categories = ["all", "accessories", "charms", "flowers", "keychain", "plushie", "rakhi"]
 
 export default function ShopPage() {
   const [selectedCategory, setSelectedCategory] = useState("all")
@@ -88,7 +88,9 @@ export default function ShopPage() {
                   className={`px-4 py-2 rounded-full text-sm capitalize boty-transition bg-popover ${
                     selectedCategory === category
                       ? "bg-primary text-primary-foreground"
-                      : "bg-card text-foreground/70 hover:text-foreground boty-shadow"
+                      : category === "rakhi"
+                        ? "bg-card text-primary font-semibold border-2 border-primary shadow-[0_0_15px] shadow-primary/60 hover:bg-primary/10 hover:shadow-[0_0_20px] hover:shadow-primary/80 transition-all duration-300"
+                        : "bg-card text-foreground/70 hover:text-foreground boty-shadow"
                   }`}
                 >
                   {category}
@@ -127,7 +129,9 @@ export default function ShopPage() {
                       className={`w-full px-6 py-4 rounded-2xl text-left capitalize boty-transition ${
                         selectedCategory === category
                           ? "bg-primary text-primary-foreground"
-                          : "bg-card text-foreground boty-shadow"
+                          : category === "rakhi"
+                            ? "bg-card text-primary font-semibold border-2 border-primary shadow-[0_0_15px] shadow-primary/60 hover:bg-primary/10 hover:shadow-[0_0_20px] hover:shadow-primary/80 transition-all duration-300"
+                            : "bg-card text-foreground boty-shadow"
                       }`}
                     >
                       {category}

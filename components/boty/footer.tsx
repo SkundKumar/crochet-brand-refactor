@@ -11,6 +11,7 @@ const footerLinks = {
     { name: "Flowers", href: "/shop?category=flowers" },
     { name: "Keychain", href: "/shop?category=keychain" },
     { name: "Plushie", href: "/shop?category=plushie" },
+    { name: "Rakhi", href: "/shop?category=rakhi" },
     { name: "Gift Sets", href: "/shop" }
   ],
   about: [

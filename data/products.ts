@@ -1,4 +1,4 @@
-export type Category = 'accessories' | 'charms' | 'flowers' | 'keychain' | 'plushie';
+export type Category = 'accessories' | 'charms' | 'flowers' | 'keychain' | 'plushie' | 'rakhi';
 
 export interface Product {
   id: string;
@@ -594,7 +594,7 @@ export const products: Product[] = [
      originalPrice: 99,
      images: ['/images/products/rakhi.jpeg'],
      badge: 'New',
-     category: 'charms',
+     category: 'rakhi',
      featured: true,
      tagline: 'Traditional rakhi',
      sizes: ['One Size'],
@@ -789,7 +789,7 @@ export const products: Product[] = [
       originalPrice: 99,
       images: ['/images/products/Brown_cream_rakhi_59.jpeg'],
       badge: 'New',
-      category: 'charms',
+      category: 'rakhi',
       tagline: 'Elegant earthy rakhi',
       sizes: ['One Size'],
       details: 'Handcrafted rakhi featuring a classic combination of brown and cream colors. Perfect for celebrating the bond of siblings.',
@@ -837,7 +837,7 @@ export const products: Product[] = [
       originalPrice: 349,
       images: ['/images/products/rakhi_set_249.jpeg', '/images/products/rakhi_set_249_2.jpeg'],
       badge: 'New',
-      category: 'charms',
+      category: 'rakhi',
       tagline: 'Matching rakhi set',
       sizes: ['One Size'],
       details: 'Handcrafted rakhi set featuring beautiful matching designs with vibrant yarn and decorative beads. Perfect for siblings.',
@@ -853,7 +853,7 @@ export const products: Product[] = [
       originalPrice: 299,
       images: ['/images/products/single_lumba_rakhi_199.jpeg'],
       badge: 'New',
-      category: 'charms',
+      category: 'rakhi',
       tagline: 'Handcrafted lumba rakhi',
       sizes: ['One Size'],
       details: 'Handcrafted lumba rakhi featuring vibrant colors and elegant dangling details.',
@@ -875,6 +875,22 @@ export const products: Product[] = [
       details: 'Beautifully handcrafted anklet featuring tiny crochet sunflowers. A perfect accessory for a cheerful and bohemian look.',
       materials: '100% Premium Yarn, Secure Clasp',
       careInstructions: 'Keep dry. Dust gently. Avoid moisture and direct sunlight.',
+      delivery: 'Handcrafted with care. Delivery takes 1-2 weeks. Free shipping on orders over ₹500.'
+    },
+    {
+      id: 'basic-rakhi',
+      name: 'Basic Rakhi',
+      description: 'Handcrafted basic rakhi made with premium yarn.',
+      price: 49,
+      originalPrice: 79,
+      images: ['/images/products/basic_rakhi_49.jpeg'],
+      badge: 'New',
+      category: 'rakhi',
+      tagline: 'Simple elegant rakhi',
+      sizes: ['One Size'],
+      details: 'Handcrafted rakhi featuring a simple and elegant design. Perfect for celebrating the bond of siblings.',
+      materials: '100% Premium Yarn, Thread',
+      careInstructions: 'Keep dry. Avoid moisture and direct sunlight.',
       delivery: 'Handcrafted with care. Delivery takes 1-2 weeks. Free shipping on orders over ₹500.'
     }
    ];
