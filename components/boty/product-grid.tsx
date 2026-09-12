@@ -1,43 +1,18 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
-import Image from "next/image"
+import { useState } from "react"
+import Image from "@/components/Image"
 import Link from "next/link"
 import { ShoppingBag } from "lucide-react"
 import { useCart } from "./cart-context"
-import { products, Category } from "@/data/products"
+import { products } from "@/data/products"
+import { useInView } from "@/hooks/use-in-view"
 
 export function ProductGrid() {
-  const [isVisible, setIsVisible] = useState(false)
-  const [headerVisible, setHeaderVisible] = useState(false)
-  const gridRef = useRef<HTMLDivElement>(null)
-  const headerRef = useRef<HTMLDivElement>(null)
+  const { ref: gridRef, inView: isVisible } = useInView()
+  const { ref: headerRef, inView: headerVisible } = useInView()
 
   const featuredProducts = products.filter(product => product.featured === true)
-
-  useEffect(() => {
-    const gridObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true)
-      },
-      { threshold: 0.1 }
-    )
-
-    const headerObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setHeaderVisible(true)
-      },
-      { threshold: 0.1 }
-    )
-
-    if (gridRef.current) gridObserver.observe(gridRef.current)
-    if (headerRef.current) headerObserver.observe(headerRef.current)
-
-    return () => {
-      if (gridRef.current) gridObserver.unobserve(gridRef.current)
-      if (headerRef.current) headerObserver.unobserve(headerRef.current)
-    }
-  }, [])
 
   return (
     <section className="py-24 bg-card">

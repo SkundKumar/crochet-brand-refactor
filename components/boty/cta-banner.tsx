@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
+import Image from "@/components/Image"
 import { Leaf, Flower2, Globe } from "lucide-react"
 
 export function CTABanner() {

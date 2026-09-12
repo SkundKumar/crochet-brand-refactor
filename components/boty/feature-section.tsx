@@ -1,8 +1,8 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
+import Image from "@/components/Image"
 import { Recycle, Leaf, Flower2, Globe } from "lucide-react"
+import { useInView } from "@/hooks/use-in-view"
 
 const features = [
   {
@@ -28,65 +28,9 @@ const features = [
 ]
 
 export function FeatureSection() {
-  const [isVisible, setIsVisible] = useState(false)
-  const [isVideoVisible, setIsVideoVisible] = useState(false)
-  const [headerVisible, setHeaderVisible] = useState(false)
-  const bentoRef = useRef<HTMLDivElement>(null)
-  const videoSectionRef = useRef<HTMLDivElement>(null)
-  const headerRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    const videoObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVideoVisible(true)
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    const headerObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHeaderVisible(true)
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    if (bentoRef.current) {
-      observer.observe(bentoRef.current)
-    }
-
-    if (videoSectionRef.current) {
-      videoObserver.observe(videoSectionRef.current)
-    }
-
-    if (headerRef.current) {
-      headerObserver.observe(headerRef.current)
-    }
-
-    return () => {
-      if (bentoRef.current) {
-        observer.unobserve(bentoRef.current)
-      }
-      if (videoSectionRef.current) {
-        videoObserver.unobserve(videoSectionRef.current)
-      }
-      if (headerRef.current) {
-        headerObserver.unobserve(headerRef.current)
-      }
-    }
-  }, [])
+  const { ref: bentoRef, inView: isVisible } = useInView()
+  const { ref: videoSectionRef, inView: isVideoVisible } = useInView()
+  const { ref: headerRef, inView: headerVisible } = useInView()
 
   return (
     <section className="py-24 bg-background">

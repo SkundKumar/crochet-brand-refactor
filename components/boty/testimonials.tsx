@@ -1,7 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import { Star } from "lucide-react"
+import { useInView } from "@/hooks/use-in-view"
 
 const testimonials = [
   {
@@ -106,33 +105,11 @@ const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] 
 )
 
 export function Testimonials() {
-  const [headerVisible, setHeaderVisible] = useState(false)
-  const headerRef = useRef<HTMLDivElement>(null)
-  
+  const { ref: headerRef, inView: headerVisible } = useInView()
+
   const column1 = [testimonials[0], testimonials[3], testimonials[6]]
   const column2 = [testimonials[1], testimonials[4], testimonials[7]]
   const column3 = [testimonials[2], testimonials[5], testimonials[8]]
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHeaderVisible(true)
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    if (headerRef.current) {
-      observer.observe(headerRef.current)
-    }
-
-    return () => {
-      if (headerRef.current) {
-        observer.unobserve(headerRef.current)
-      }
-    }
-  }, [])
 
   return (
     <section className="py-24 bg-background overflow-hidden pb-24 pt-12">
@@ -195,42 +172,6 @@ export function Testimonials() {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes scroll-down {
-          0% {
-            transform: translateY(0);
-          }
-          100% {
-            transform: translateY(-50%);
-          }
-        }
-
-        @keyframes scroll-up {
-          0% {
-            transform: translateY(-50%);
-          }
-          100% {
-            transform: translateY(0);
-          }
-        }
-
-        .animate-scroll-down {
-          animation: scroll-down 30s linear infinite;
-        }
-
-        .animate-scroll-up {
-          animation: scroll-up 30s linear infinite;
-        }
-
-        .animate-scroll-down-slow {
-          animation: scroll-down 60s linear infinite;
-        }
-
-        .animate-scroll-up-slow {
-          animation: scroll-up 60s linear infinite;
-        }
-      `}</style>
     </section>
   )
 }
