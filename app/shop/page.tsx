@@ -31,6 +31,10 @@ export default function ShopPage() {
   )
 
   useEffect(() => {
+    const categoryParam = new URLSearchParams(window.location.search).get("category")
+    const categoryFromUrl = categoryParam && categories.includes(categoryParam) ? categoryParam : "all"
+    setSelectedCategory(categoryFromUrl)
+
     const syncPageFromUrl = () => {
       const pageParam = Number(new URLSearchParams(window.location.search).get("page"))
       const pageFromUrl = Number.isInteger(pageParam) && pageParam >= 1 && pageParam <= totalPages
@@ -51,6 +55,11 @@ export default function ShopPage() {
     setShowFilters(false)
 
     const url = new URL(window.location.href)
+    if (category === "all") {
+      url.searchParams.delete("category")
+    } else {
+      url.searchParams.set("category", category)
+    }
     url.searchParams.delete("page")
     window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`)
   }

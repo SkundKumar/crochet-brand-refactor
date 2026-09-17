@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Instagram, Facebook, Twitter } from "lucide-react"
+import { Twitter } from "lucide-react"
 
 const footerLinks = {
   shop: [
@@ -15,16 +15,16 @@ const footerLinks = {
     { name: "Gift Sets", href: "/shop" }
   ],
   about: [
-    { name: "Our Story", href: "/" },
-    { name: "Craftsmanship", href: "/" },
-    { name: "Sustainability", href: "/" },
-    { name: "Press", href: "/" }
+    { name: "Our Story", href: "/about" },
+    { name: "Craftsmanship", href: "/about#craftsmanship" },
+    { name: "Sustainability", href: "/about#sustainability" },
+    { name: "Press", href: "/about#press" }
   ],
   support: [
-    { name: "Contact Us", href: "/" },
-    { name: "FAQ", href: "/" },
-    { name: "Shipping", href: "/" },
-    { name: "Returns", href: "/" }
+    { name: "Contact Us", href: "/contact" },
+    { name: "FAQ", href: "/faq" },
+    { name: "Shipping", href: "/shipping" },
+    { name: "Returns", href: "/returns" }
   ]
 }
 
@@ -52,25 +52,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition boty-shadow"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href="https://x.com/Kerroudjm"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition boty-shadow"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a
-                href="https://x.com/Kerroudjm"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-background flex items-center justify-center text-foreground/60 hover:text-foreground boty-transition boty-shadow"
-                aria-label="Twitter"
+                aria-label="Crux on X"
               >
                 <Twitter className="w-4 h-4" />
               </a>
@@ -133,13 +115,13 @@ export function Footer() {
         <div className="pt-10 border-t border-border/50">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Boty. All rights reserved.
+              © {new Date().getFullYear()} Crux. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <Link href="/" className="text-sm text-muted-foreground hover:text-foreground boty-transition">
+              <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground boty-transition">
                 Privacy Policy
               </Link>
-              <Link href="/" className="text-sm text-muted-foreground hover:text-foreground boty-transition">
+              <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground boty-transition">
                 Terms of Service
               </Link>
             </div>

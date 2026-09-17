@@ -21,7 +21,6 @@ export default function Image({ src, alt, onLoad, ...props }: CustomImageProps) 
         src={src}
         alt={alt || "Image"}
         {...props}
-        loading="eager"
         style={showPlaceholder ? {
           backgroundImage: `url(${buildSrc({
             urlEndpoint: "https://ik.imagekit.io/crux",
