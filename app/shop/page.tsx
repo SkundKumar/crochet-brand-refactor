@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { Suspense, useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import Image from "@/components/Image"
 import Link from "next/link"
 import { ShoppingBag, SlidersHorizontal, X, ChevronLeft, ChevronRight } from "lucide-react"
@@ -13,7 +14,8 @@ import { useInView } from "@/hooks/use-in-view"
 const categories = ["all", "accessories", "charms", "flowers", "keychain", "plushie", "rakhi"]
 const ITEMS_PER_PAGE = 12
 
-export default function ShopPage() {
+function ShopContent() {
+  const searchParams = useSearchParams()
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [currentPage, setCurrentPage] = useState(1)
   const [showFilters, setShowFilters] = useState(false)
@@ -31,10 +33,12 @@ export default function ShopPage() {
   )
 
   useEffect(() => {
-    const categoryParam = new URLSearchParams(window.location.search).get("category")
+    const categoryParam = searchParams.get("category")
     const categoryFromUrl = categoryParam && categories.includes(categoryParam) ? categoryParam : "all"
     setSelectedCategory(categoryFromUrl)
+  }, [searchParams])
 
+  useEffect(() => {
     const syncPageFromUrl = () => {
       const pageParam = Number(new URLSearchParams(window.location.search).get("page"))
       const pageFromUrl = Number.isInteger(pageParam) && pageParam >= 1 && pageParam <= totalPages
@@ -60,6 +64,7 @@ export default function ShopPage() {
     } else {
       url.searchParams.set("category", category)
     }
+
     url.searchParams.delete("page")
     window.history.replaceState({}, "", `${url.pathname}${url.search}${url.hash}`)
   }
@@ -275,6 +280,14 @@ export default function ShopPage() {
 
       <Footer />
     </main>
+  )
+}
+
+export default function ShopPage() {
+  return (
+    <Suspense fallback={<main className="min-h-screen" />}>
+      <ShopContent />
+    </Suspense>
   )
 }
 

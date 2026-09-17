@@ -4,18 +4,20 @@
 **Scope:** Next.js application routes, shared layout/components, product data, assets, and crawl/indexation controls in this repository.  
 **Routes reviewed:** `/`, `/shop`, and `/product/[id]` (including the 63-product catalog and query-string filter/pagination behavior).
 
+> **Implementation status:** The findings below began as a pre-implementation baseline. The route, crawl-control, canonical, product 404, product structured-data, breadcrumb, Organization, and WebSite findings marked **Resolved** were implemented in the SEO remediation commit.
+
 ## Executive summary
 
-The site has a good baseline for a JavaScript storefront: it uses semantic links, server-rendered route components, descriptive product image alt text in the main templates, a document language, responsive image sizing, and unique product titles/descriptions for valid product IDs. However, it is not ready for dependable organic discovery or ecommerce rich results.
+The original audit identified indexation, metadata, ecommerce structured-data, navigation, trust-content, and performance issues. The critical crawl, product-template, and homepage structured-data issues have since been remediated. Remaining work is validation in production and any future category landing-page strategy.
 
-The highest-impact issues are:
+The original highest-impact issues were:
 
-1. There is no `robots.txt`, `sitemap.xml`, canonical URL strategy, or `metadataBase`.
-2. Unknown product IDs render the first product instead of a 404, creating duplicate/soft-404 URLs.
-3. The home page has no descriptive `<h1>`; the shared logo renders `<h1>Crux</h1>` on every route.
-4. There is no Product, BreadcrumbList, Organization, or WebSite JSON-LD.
-5. Category links advertise query URLs that the shop page does not read, and catalog filtering/pagination is primarily client-side and not represented as crawlable route state.
-6. Product images are forced to `loading="eager"` by the custom image wrapper, which can inflate initial loading cost and hurt Core Web Vitals.
+1. Missing crawl-control files and canonical metadata — **Resolved**.
+2. Unknown product IDs rendering the first product — **Resolved**.
+3. Missing homepage heading hierarchy — **Resolved**.
+4. Missing ecommerce structured data — Product, BreadcrumbList, Organization, and WebSite are **Resolved**.
+5. Broken category query synchronization — **Resolved**.
+6. Product images being forced to `loading="eager"` — **Resolved**.
 
 ## Priority scale
 
@@ -28,14 +30,14 @@ The highest-impact issues are:
 
 | Priority | Finding | Evidence | Impact | Recommendation |
 |---|---|---|---|---|
-| P0 | No crawl-control or URL discovery files | No `app/robots.ts`, `app/sitemap.ts`, `public/robots.txt`, or sitemap exists | Search engines have no first-party sitemap of the 63 product URLs and no explicit crawl policy | Add Next metadata routes for `robots.txt` and `sitemap.xml`; include home, shop, and every valid product URL. |
-| P0 | No canonical URLs | [`app/layout.tsx`](./app/layout.tsx) and [`app/product/[id]/page.tsx`](./app/product/[id]/page.tsx) define no `alternates.canonical`; there is also no `metadataBase` | Query-string variants and trailing/host variants can fragment signals; Google must infer the preferred URL | Set a production `metadataBase`, emit canonical URLs for every indexable route, and decide whether `shop?category=` pages are indexable. |
-| P0 | Invalid product IDs are soft 404s and duplicate the first product | [`app/product/[id]/page.tsx`](./app/product/[id]/page.tsx) lines 16 and 24 use `getProductById(id) ?? products[0]` | Every typo, stale link, or arbitrary ID can index as the first product with misleading title/content | Call `notFound()` when the ID is absent. Add `generateStaticParams()` for the 63 known products if static generation is desired. |
+| P0 — Resolved | No crawl-control or URL discovery files | [`app/robots.ts`](./app/robots.ts) and [`app/sitemap.ts`](./app/sitemap.ts) now generate both routes | Search engines now have explicit crawl policy and a sitemap containing the catalog | Keep the sitemap submitted in Search Console and verify the production origin. |
+| P0 — Resolved | No canonical URLs | [`app/layout.tsx`](./app/layout.tsx), [`app/shop/layout.tsx`](./app/shop/layout.tsx), and [`app/product/[id]/page.tsx`](./app/product/[id]/page.tsx) now define `metadataBase`/canonical metadata | Canonical signals are now emitted for the primary indexable routes | Set `NEXT_PUBLIC_SITE_URL=https://crux.in` in production. |
+| P0 — Resolved | Invalid product IDs are soft 404s and duplicate the first product | [`app/product/[id]/page.tsx`](./app/product/[id]/page.tsx) now calls `notFound()` for unknown IDs and statically generates the 63 known products | Invalid product URLs now return a real 404 instead of duplicating a product | Keep invalid-ID behavior covered when route handling changes. |
 | P1 | Homepage has no descriptive H1; logo is an H1 on every page | [`components/boty/header.tsx`](./components/boty/header.tsx) renders an H1 logo globally; [`components/boty/hero.tsx`](./components/boty/hero.tsx) uses H2 for “Woven With Care” | The home page's primary topic is not expressed as a heading, while shop/product pages receive an extra brand H1 | Render the logo as a non-heading element/link and use one descriptive home H1 (for example, “Handcrafted Crochet Pieces”). Keep one route-specific H1 on shop and product pages. |
 | P1 | Metadata is incomplete for search and social sharing | [`app/layout.tsx`](./app/layout.tsx) only sets one generic title, description, and deprecated `keywords` | No Open Graph image/title, Twitter card, locale, site URL, canonical base, or route-specific shop/home metadata; link previews will be weak | Add `metadataBase`, title templates, route metadata for home/shop, Open Graph, Twitter, and a branded social image. Remove reliance on `keywords`. |
 | P1 | Product metadata omits commerce and share context | [`app/product/[id]/page.tsx`](./app/product/[id]/page.tsx) only returns `title` and `description` | Product snippets lack consistent brand/category context and social preview data | Build metadata from the product with a stable title/description, canonical URL, `openGraph.images`, product image, and a `noindex`/404 policy for invalid IDs. |
-| P1 | No structured data | No JSON-LD exists anywhere in `app/` or `components/` | Product rich results, breadcrumbs, organization identity, and site search eligibility are not communicated | Add server-rendered JSON-LD: `Organization`/`WebSite` site-wide, `BreadcrumbList` on shop/product pages, and `Product` with `Offer`, `image`, `description`, `brand`, `sku`/`mpn`, availability, and price currency on product pages. Validate in Rich Results Test. |
-| P1 | Category URLs are broken or misleading | [`components/boty/footer.tsx`](./components/boty/footer.tsx) links to `/shop?category=...`, but [`app/shop/page.tsx`](./app/shop/page.tsx) never reads `category` | Users and crawlers following footer category links see all products, causing intent mismatch and wasting internal-link equity | Read and validate `category` from `searchParams`; preferably make category pages server-rendered and give each allowed category a stable title, description, canonical, and index/noindex policy. |
+| P1 — Resolved | No structured data | [`app/product/[id]/page.tsx`](./app/product/[id]/page.tsx) now emits Product and BreadcrumbList JSON-LD; [`app/page.tsx`](./app/page.tsx) emits Organization and WebSite JSON-LD | Ecommerce and homepage entity signals are now present | Validate the JSON-LD in Rich Results Test and Search Console after deployment. |
+| P1 — Resolved | Category URLs are broken or misleading | [`app/shop/page.tsx`](./app/shop/page.tsx) now reads category state through `useSearchParams()` and is wrapped in Suspense | Footer category links now synchronize with the selected filter | Consider server-rendered category landing pages if category SEO becomes a priority. |
 | P1 | Catalog state is not reliably crawlable | [`app/shop/page.tsx`](./app/shop/page.tsx) is a client component; category state is not URL-synced and pagination is changed with browser history | Search engines and users cannot reliably share or discover filtered pages; server HTML does not represent a stable URL state | Move filter/pagination state to `searchParams` in a server page, preserve it in links, add `rel="next"`/`rel="prev"` only where applicable, and canonicalize or noindex thin facets. |
 | P1 | Product image loading is forced eager | [`components/Image.tsx`](./components/Image.tsx) sets `loading="eager"` on every ImageKit image, regardless of `priority` | All visible and below-the-fold product images compete for bandwidth, harming LCP/INP on shop pages | Remove the unconditional eager override. Let `priority`/`loading` flow through, use `priority` only for the LCP image, and keep meaningful `sizes`. |
 | P1 | Social links have incorrect destinations and labels | [`components/boty/footer.tsx`](./components/boty/footer.tsx) labels three links Instagram/Facebook/Twitter but sends all to the same X URL | Trust signals and external profile discovery are incorrect; users may report broken social links | Replace with verified, platform-specific URLs or remove unavailable profiles. Keep accessible labels aligned with the destination. |
