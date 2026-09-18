@@ -21,32 +21,29 @@ const playfairDisplay = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Crux | Handcrafted Crochet',
-    template: '%s | Crux',
+    default: 'Cruxs | Handmade Crochet Crafts, Gifts & Accessories',
+    template: '%s | Cruxs',
   },
-  description: 'Handcrafted crochet accessories, charms, keychains, plushies, and gifts made with care by Crux artisans.',
+  description: 'Cruxs creates handcrafted crochet crafts, accessories, charms, keychains, plushies, and thoughtful gifts made with care.',
+  applicationName: 'Cruxs Crochet',
   openGraph: {
     type: 'website',
-    siteName: 'Crux',
-    title: 'Crux | Handcrafted Crochet',
-    description: 'Handcrafted crochet accessories, charms, keychains, plushies, and gifts made with care.',
+    siteName: 'Cruxs',
+    title: 'Cruxs | Handmade Crochet Crafts, Gifts & Accessories',
+    description: 'Handcrafted crochet crafts, accessories, charms, keychains, plushies, and gifts made with care.',
     url: absoluteUrl('/'),
-    images: [{ url: absoluteUrl('/images/heroo.png'), width: 1200, height: 630, alt: 'Crux handcrafted crochet' }],
+    images: [{ url: absoluteUrl('/images/heroo.png'), width: 505, height: 494, alt: 'Crux handcrafted crochet' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Crux | Handcrafted Crochet',
-    description: 'Handcrafted crochet pieces made with care.',
+    title: 'Cruxs | Handmade Crochet Crafts, Gifts & Accessories',
+    description: 'Handcrafted crochet crafts and gifts made with care.',
     images: [absoluteUrl('/images/heroo.png')],
   },
   icons: {
-    icon: [
-      {
-        url: '/images/heroo.png',
-        type: 'image/png',
-      },
-    ],
-    apple: '/images/heroo.png',
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
   },
 }
 
