@@ -53,7 +53,7 @@ export function Hero() {
                        animate-blur-in opacity-0"
             style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
           >
-            Handcrafted Crochet
+            Cruxs | Handcrafted Crochet
           </span>
 
           <h1 className="font-serif text-balance text-black leading-[1.05] mb-6">
@@ -82,8 +82,8 @@ export function Hero() {
                        animate-blur-in opacity-0"
             style={{ animationDelay: "0.8s", animationFillMode: "forwards" }}
           >
-            Artisan crochet pieces made with love. Sustainable materials,
-            timeless designs, unique craftsmanship.
+            Handcrafted crochet crafts and gifts made with love. Sustainable
+            materials, timeless designs, and unique craftsmanship.
           </p>
 
           <div

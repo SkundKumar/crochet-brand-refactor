@@ -9,15 +9,16 @@ export default function HomePage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Crux",
+    name: "Cruxs",
+    alternateName: ["Crux", "Cruxs Crochet", "Cruxs Crochet and Crafts"],
     url: absoluteUrl("/"),
-    logo: absoluteUrl("/images/heroo.png"),
+    logo: absoluteUrl("/icon.svg"),
     sameAs: ["https://x.com/Kerroudjm"],
   }
   const websiteData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Crux",
+    name: "Cruxs",
     url: absoluteUrl("/"),
   }
 
