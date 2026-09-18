@@ -6,6 +6,8 @@ import { CartProvider } from '@/components/boty/cart-context'
 import { absoluteUrl, siteUrl } from '@/lib/site'
 import './globals.css'
 
+const featuredEarringImage = 'https://ik.imagekit.io/crux/tr:w-1200,h-630,fo-auto/images/products/earring.png'
+
 const dmSans = DM_Sans({ 
   subsets: ["latin"],
   variable: '--font-dm-sans',
@@ -32,13 +34,13 @@ export const metadata: Metadata = {
     title: 'Cruxs | Handmade Crochet Crafts, Gifts & Accessories',
     description: 'Handcrafted crochet crafts, accessories, charms, keychains, plushies, and gifts made with care.',
     url: absoluteUrl('/'),
-    images: [{ url: absoluteUrl('/images/heroo.png'), width: 505, height: 494, alt: 'Crux handcrafted crochet' }],
+    images: [{ url: featuredEarringImage, width: 1200, height: 630, alt: 'Pink flower crochet earrings by Cruxs' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Cruxs | Handmade Crochet Crafts, Gifts & Accessories',
     description: 'Handcrafted crochet crafts and gifts made with care.',
-    images: [absoluteUrl('/images/heroo.png')],
+    images: [featuredEarringImage],
   },
   icons: {
     icon: '/icon.svg',
