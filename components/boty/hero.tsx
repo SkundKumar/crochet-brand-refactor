@@ -82,8 +82,8 @@ export function Hero() {
                        animate-blur-in opacity-0"
             style={{ animationDelay: "0.8s", animationFillMode: "forwards" }}
           >
-            Handcrafted crochet crafts and gifts made with love. Sustainable
-            materials, timeless designs, and unique craftsmanship.
+            Cruxs is a handmade crochet brand creating crochet crafts, gifts,
+            accessories, charms, keychains, and plushies with care.
           </p>
 
           <div
