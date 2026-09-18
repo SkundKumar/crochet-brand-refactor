@@ -53,10 +53,10 @@ export function Hero() {
                        animate-blur-in opacity-0"
             style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
           >
-            Handcrafted Crochet
+            Cruxs | Handcrafted Crochet
           </span>
 
-          <h2 className="font-serif text-balance text-black leading-[1.05] mb-6">
+          <h1 className="font-serif text-balance text-black leading-[1.05] mb-6">
             <span
               className="block font-semibold
                          text-5xl sm:text-6xl lg:text-7xl
@@ -74,7 +74,7 @@ export function Hero() {
             >
               With Care
             </span>
-          </h2>
+          </h1>
 
           <p
             className="text-base sm:text-lg leading-relaxed mb-10
@@ -82,8 +82,8 @@ export function Hero() {
                        animate-blur-in opacity-0"
             style={{ animationDelay: "0.8s", animationFillMode: "forwards" }}
           >
-            Artisan crochet pieces made with love. Sustainable materials,
-            timeless designs, unique craftsmanship.
+            Handcrafted crochet crafts and gifts made with love. Sustainable
+            materials, timeless designs, and unique craftsmanship.
           </p>
 
           <div

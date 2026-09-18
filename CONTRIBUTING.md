@@ -84,6 +84,8 @@ When approved, merge the pull request into `contributors`. **Squash and merge** 
 
 Vercel automatically creates a preview deployment for commits pushed to feature branches and `contributors`.
 
+Vercel automatically creates preview deployments for ordinary feature-branch pushes and pushes to `contributors`. If Git Fork Protection is enabled, preview deployments for fork pull requests require authorization from a repository owner or Vercel team member unless the commit author is already a Vercel team member.
+
 In Vercel:
 
 1. Open the project's **Deployments** page.
