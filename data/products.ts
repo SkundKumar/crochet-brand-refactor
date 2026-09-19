@@ -1106,7 +1106,7 @@ export const products: Product[] = [
     delivery: 'Handcrafted with care. Delivery takes 1-2 weeks.'
   },
    {
-    id: 'yellow_flower_hair_accessory_and _juda_pin_goldenTassels',
+    id: 'yellow_flower_hair_accessory_and_juda_pin_goldenTassels',
     name: 'Yellow Flower Juda Accessory',
     description: 'Handcrafted yellow flower hair accessory with juda pin and golden tassels',
     price: 299,
@@ -1115,7 +1115,7 @@ export const products: Product[] = [
     badge: 'New',
     category: 'accessories',
     tagline: 'yellow flower hair accessory',
-    sizes: ['30 inch'],
+    sizes: ['One Size'],
     details: 'Handcrafted yellow flower hair accessory with juda pin and golden tassels',
     materials: '100% Premium Yarn, Decorative Tassels',
     careInstructions: 'Keep dry. Dust gently.',
@@ -1131,14 +1131,14 @@ export const products: Product[] = [
     badge: 'New',
     category: 'accessories',
     tagline: 'yellow flower hair accessory',
-    sizes: ['30 inch'],
+    sizes: ['One Size'],
     details: 'Handcrafted yellow flower hair accessory with juda pin and golden tassels',
     materials: '100% Premium Yarn, Decorative Tassels',
     careInstructions: 'Keep dry. Dust gently.',
     delivery: 'Handcrafted with care. Delivery takes 1-2 weeks.'
   },
      {
-    id: 'rose_hair_accessory _with_goldenCharms',
+    id: 'rose_hair_accessory_with_goldenCharms',
     name: 'Rose Hair Accessory With Golden Charms',
     description: 'Handcrafted Rose hair accessory.',
     price: 299,
@@ -1147,7 +1147,7 @@ export const products: Product[] = [
     badge: 'New',
     category: 'accessories',
     tagline: 'yellow flower hair accessory',
-    sizes: ['30 inch'],
+    sizes: ['One Size'],
     details: 'Handcrafted yellow flower hair accessory with juda pin and golden tassels',
     materials: '100% Premium Yarn, Decorative Tassels',
     careInstructions: 'Keep dry. Dust gently.',
