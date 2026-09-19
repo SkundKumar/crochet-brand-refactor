@@ -1037,8 +1037,126 @@ export const products: Product[] = [
     materials: '100% Premium Yarn, Decorative Tassels',
     careInstructions: 'Keep dry. Dust gently.',
     delivery: 'Handcrafted with care. Delivery takes 1-2 weeks.'
-  }
+  },
+  {
+    id: 'yellow-flower-juda-pin-pearl-tassels',
+    name: 'Yellow Flower Juda Accessory with Pearl Tassels',
+    description: 'A handcrafted yellow crochet flower juda accessory with a secure pin and delicate pearl tassels.',
+    price: 249,
+    originalPrice: 399,
+    images: ['/images/products/yellow_flower_hair_accessory_and_judaPin_with_pearlTassels.jpeg'],
+    badge: 'New',
+    category: 'accessories',
+    tagline: 'Elegant floral hair adornment',
+    sizes: ['One Size'],
+    details: 'Handcrafted yellow flower accessory designed for a juda or bun, finished with a secure pin and graceful pearl tassels. A festive accent for traditional and special-occasion looks.',
+    materials: '100% Premium Yarn, Juda Pin, Pearl Tassels',
+    careInstructions: 'Keep dry. Dust gently. Store flat or in a protective pouch away from direct sunlight.',
+    delivery: 'Handcrafted with care. Delivery takes 1-2 weeks.'
+  },
+  {
+    id: 'sunflower-juda-pin-golden-tassels',
+    name: 'Sunflower Juda Accessory with Golden Tassels',
+    description: 'A bright handcrafted sunflower juda accessory with a secure pin and shimmering golden tassels.',
+    price: 249,
+    originalPrice: 399,
+    images: [
+      '/images/products/sunflower_hair_accessory_with_judaPin_with_goldenTassels.jpeg',
+      '/images/products/sunflower_hair_accessory_with_judaPin_with_goldenTassels_image2.jpeg'
+    ],
+    badge: 'New',
+    category: 'accessories',
+    tagline: 'Sunlit festive hair accessory',
+    sizes: ['One Size'],
+    details: 'Handcrafted sunflower hair accessory made to decorate a juda or bun. The secure pin and golden tassels add a cheerful, festive finish to braids, buns, and traditional outfits.',
+    materials: '100% Premium Yarn, Juda Pin, Golden Tassels',
+    careInstructions: 'Keep dry. Dust gently. Store flat or in a protective pouch away from direct sunlight.',
+    delivery: 'Handcrafted with care. Delivery takes 1-2 weeks.'
+  },
+  {
+    id: 'orange-flower-juda-pin-pearl-tassels',
+    name: 'Orange Flower Juda Accessory with Pearl Tassels',
+    description: 'A handcrafted orange crochet flower juda accessory with a secure pin and elegant pearl tassels.',
+    price: 299,
+    originalPrice: 399,
+    images: ['/images/products/orange_flower_hair_accessory_and_judaPin_with_pearlTassels.jpeg'],
+    badge: 'New',
+    category: 'accessories',
+    tagline: 'Warm floral hair adornment',
+    sizes: ['One Size'],
+    details: 'Handcrafted orange flower accessory designed for a juda or bun, with a secure pin and delicate pearl tassels. A rich pop of color for festive celebrations and wedding looks.',
+    materials: '100% Premium Yarn, Juda Pin, Pearl Tassels',
+    careInstructions: 'Keep dry. Dust gently. Store flat or in a protective pouch away from direct sunlight.',
+    delivery: 'Handcrafted with care. Delivery takes 1-2 weeks.'
+  },
+  {
+    id: 'orange-flower-juda-pin',
+    name: 'Orange Flower Juda Accessory',
+    description: 'A vibrant handcrafted orange flower hair accessory with a practical juda pin.',
+    price: 229,
+    originalPrice: 349,
+    images: ['/images/products/orange_flower_hair_accessory_and_judaPin.jpeg'],
+    badge: 'New',
+    category: 'accessories',
+    tagline: 'Vibrant floral bun accent',
+    sizes: ['One Size'],
+    details: 'Handcrafted orange crochet flower with a secure juda pin for decorating buns and traditional hairstyles. Lightweight, colorful, and easy to style for festive occasions.',
+    materials: '100% Premium Yarn, Juda Pin',
+    careInstructions: 'Keep dry. Dust gently. Store flat or in a protective pouch away from direct sunlight.',
+    delivery: 'Handcrafted with care. Delivery takes 1-2 weeks.'
+  },
+   {
+    id: 'yellow_flower_hair_accessory_and _juda_pin_goldenTassels',
+    name: 'Yellow Flower Juda Accessory',
+    description: 'Handcrafted yellow flower hair accessory with juda pin and golden tassels',
+    price: 249,
+    originalPrice: 399,
+    images: ['/images/products/yellow_flower_hair_accessory_and _juda_pin_goldenTassels.jpeg'],
+    badge: 'New',
+    category: 'accessories',
+    tagline: 'yellow flower hair accessory',
+    sizes: ['30 inch'],
+    details: 'Handcrafted yellow flower hair accessory with juda pin and golden tassels',
+    materials: '100% Premium Yarn, Decorative Tassels',
+    careInstructions: 'Keep dry. Dust gently.',
+    delivery: 'Handcrafted with care. Delivery takes 1-2 weeks.'
+  },
+     {
+    id: 'rose_hair_accessory',
+    name: 'Rose Hair Accessory',
+    description: 'Handcrafted Rose hair accessory.',
+    price: 299,
+    originalPrice: 449,
+    images: ['/images/products/rose_hair_accessory.jpeg'],
+    badge: 'New',
+    category: 'accessories',
+    tagline: 'yellow flower hair accessory',
+    sizes: ['30 inch'],
+    details: 'Handcrafted yellow flower hair accessory with juda pin and golden tassels',
+    materials: '100% Premium Yarn, Decorative Tassels',
+    careInstructions: 'Keep dry. Dust gently.',
+    delivery: 'Handcrafted with care. Delivery takes 1-2 weeks.'
+  },
+     {
+    id: 'rose_hair_accessory _with_goldenCharms',
+    name: 'Rose Hair Accessory With Golden Charms',
+    description: 'Handcrafted Rose hair accessory.',
+    price: 299,
+    originalPrice: 449,
+    images: ['/images/products/rose_hair_accessory _with_goldenCharms.jpeg'],
+    badge: 'New',
+    category: 'accessories',
+    tagline: 'yellow flower hair accessory',
+    sizes: ['30 inch'],
+    details: 'Handcrafted yellow flower hair accessory with juda pin and golden tassels',
+    materials: '100% Premium Yarn, Decorative Tassels',
+    careInstructions: 'Keep dry. Dust gently.',
+    delivery: 'Handcrafted with care. Delivery takes 1-2 weeks.'
+  },
+  
+
 ];
+
 
 
 
