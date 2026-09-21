@@ -1141,8 +1141,8 @@ export const products: Product[] = [
     id: 'rose_hair_accessory_with_goldenCharms',
     name: 'Rose Hair Accessory With Golden Charms',
     description: 'Handcrafted Rose hair accessory.',
-    price: 299,
-    originalPrice: 449,
+    price: 349,
+    originalPrice: 549,
     images: ['/images/products/rose_hair_accessory _with_goldenCharms.jpeg'],
     badge: 'New',
     category: 'accessories',
@@ -1153,6 +1153,23 @@ export const products: Product[] = [
     careInstructions: 'Keep dry. Dust gently.',
     delivery: 'Handcrafted with care. Delivery takes 1-2 weeks.'
   },
+       {
+    id: 'rose_hair_accessory_with_silverBells',
+    name: 'Rose Hair Accessory With Silver Bells',
+    description: 'Handcrafted rose hair accessory with silver bells.',
+    price: 349,
+    originalPrice: 499,
+    images: ['/images/products/rose_hair_accessory_with_silverBells.jpeg'],
+    badge: 'New',
+    category: 'accessories',
+    tagline: 'yellow flower hair accessory',
+    sizes: ['One Size'],
+    details: 'Handcrafted rose hair accessory with silver bells.',
+    materials: '100% Premium Yarn, Decorative Tassels',
+    careInstructions: 'Keep dry. Dust gently.',
+    delivery: 'Handcrafted with care. Delivery takes 1-2 weeks.'
+  },
+
   
 
 ];
