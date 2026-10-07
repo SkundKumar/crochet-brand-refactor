@@ -1169,6 +1169,54 @@ export const products: Product[] = [
     careInstructions: 'Keep dry. Dust gently.',
     delivery: 'Handcrafted with care. Delivery takes 1-2 weeks.'
   },
+       {
+    id: 'Boho_Mosaic_Sling_bag',
+    name: 'Boho Mosaic Sling Bag',
+    description: 'Handcrafted boho mosaic sling bag.',
+    price: 449,
+    originalPrice: 599,
+    images: ['/images/products/boho_mosaic_sling_bag.jpeg'],
+    badge: 'New',
+    category: 'accessories',
+    tagline: 'yellow flower hair accessory',
+    sizes: ['One Size'],
+    details: 'Handcrafted boho mosaic sling bag.',
+    materials: '100% Premium Yarn, Decorative Tassels',
+    careInstructions: 'Keep dry. Dust gently.',
+    delivery: 'Handcrafted with care. Delivery takes 1-2 weeks.'
+  },
+        {
+    id: 'Sunflower_Pocket_Sling_bag',
+    name: 'Sunflower Pocket Sling Bag',
+    description: 'Handcrafted sunflower pocket sling bag.',
+    price: 549,
+    originalPrice: 799,
+    images: ['/images/products/sunflower_pocket_sling_bag.jpeg'],
+    badge: 'New',
+    category: 'accessories',
+    tagline: 'yellow flower hair accessory',
+    sizes: ['One Size'],
+    details: 'Handcrafted sunflower pocket sling bag.',
+    materials: '100% Premium Yarn, Decorative Tassels',
+    careInstructions: 'Keep dry. Dust gently.',
+    delivery: 'Handcrafted with care. Delivery takes 1-2 weeks.'
+  },
+        {
+    id: 'Mustard_Blossom_Sling_bag',
+    name: 'Mustard Blossom Sling Bag',
+    description: 'Handcrafted mustard blossom sling bag.',
+    price: 399,
+    originalPrice: 499,
+    images: ['/images/products/mustard_blossom_sling_bag.jpeg'],
+    badge: 'New',
+    category: 'accessories',
+    tagline: 'yellow flower hair accessory',
+    sizes: ['One Size'],
+    details: 'Handcrafted mustard blossom sling bag.',
+    materials: '100% Premium Yarn, Decorative Tassels',
+    careInstructions: 'Keep dry. Dust gently.',
+    delivery: 'Handcrafted with care. Delivery takes 1-2 weeks.'
+  },
 
   
 
