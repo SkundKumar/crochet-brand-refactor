@@ -1188,7 +1188,7 @@ export const products: Product[] = [
         {
     id: 'Sunflower_Pocket_Sling_bag',
     name: 'Sunflower Sling Bag',
-    description: 'Handcrafted sunflower pocket sling bag.',
+    description: 'Handcrafted sunflower sling bag with lining.',
     price: 499,
     originalPrice: 799,
     images: ['/images/products/Sunflower_Pocket_Sling_bag.jpeg'],
